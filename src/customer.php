@@ -26,4 +26,9 @@ class Customer extends ResourceWrapper
     {
         return $this->apiclient->post($this->get_request_path('collection'), $customer_info);
     }
+
+    public function update($customer_id, $customer_info) {
+        $path = $this->get_request_path('single', array($customer_id));
+        return $this->apiclient->put($path, $customer_info);
+    }
 }
